@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Deep Hollow IT Solutions</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://hcaptcha.com/1/api.js" async defer></script>
+	<script type="text/javascript">
+		function onSubmit(token) {
+			console.log(token)
+		  document.forms['myform'].submit();
+		}
+	  </script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<div id="header">
+		<span class="logo"><i class="fa fa-tree" aria-hidden="true"></i></span>
+		<h1>Deep Hollow IT Solutions.</h1>
+		<p>An IT solutions firm, focused on security and built for the needs of small and medium businesses.</p>
+	</div>
+
+	<!-- Main -->
+	<div id="main">
+
+		<header class="major container medium">
+			<h2>We provide solutions to
+				<br />
+				help secure your technology while
+				<br />
+				also giving back
+			</h2>
+		</header>
+
+		<div class="box alt container">
+			<section class="feature left">
+				<a href="#" class="image icon solid fa-signal"><img src="images/pic01.jpg" alt="" /></a>
+				<div class="content">
+					<h3>Office 365 Security</h3>
+					<p>Have your Office 365 environmnet reviewed by experts for industry best practices. Get an easy to
+						understand list of remedial tasks and help implementing </p>
+				</div>
+			</section>
+			<section class="feature right">
+				<a href="#" class="image icon solid fa-code"><img src="images/pic02.jpg" alt="" /></a>
+				<div class="content">
+					<h3>Risk Assessment</h3>
+					<p>A personalized review of your technology that results in an approach of what to address</p>
+				</div>
+			</section>
+			<section class="feature left">
+				<a href="#" class="image icon solid fa-mobile-alt"><img src="images/pic03.jpg" alt="" /></a>
+				<div class="content">
+					<h3>Vulnerability Assesment</h3>
+					<p>Learn how bad guys may be able to get into your computer systems</p>
+				</div>
+			</section>
+		</div>
+
+
+		<footer class="major container medium">
+			<h3>Giving back is in our DNA</h3>
+			<p>You can feel even better after working with us, because 10% of your bill will be donated to a charity of
+				your choosing!</p>
+		</footer>
+
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+		<div class="container medium">
+	
+			<header class="major last">
+				<h2>Questions or comments?</h2>
+			</header>
+	
+			<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
+				orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+	
+			<form method="post" id="myform" action="http://localhost:3000/verify">
+				<div class=" row">
+					<div class="col-6 col-12-mobilep">
+						<input type="text" name="name" value="email@email.com" placeholder="Name" />
+					</div>
+					<div class="col-6 col-12-mobilep">
+						<input type="email" name="email" value="email@email.com" placeholder="Email@email.com" />
+					</div>
+					<div class="col-12">
+						<textarea name="message" placeholder="Message" value="email@email.com" rows="6"></textarea>
+					</div>
+					<div class="col-12">
+						<ul class="actions special">
+							<li>
+								<input class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"
+									data-callback="onSubmit" type="submit" id="btnSubmit" value="Send Message"
+									data-size="invisible" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<br />
+			</form>
+
+
+		<ul class="icons">
+			<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+			<li><a href="#" class="icon brands fa-envelope"><span class="label">Email</span></a></li>
+		</ul>
+
+		<ul class="copyright">
+			<li>All rights reserved.</li>
+			<li>This site is protected by hCaptcha and its
+				<a href="https://hcaptcha.com/privacy">Privacy Policy</a> and
+				<a href="https://hcaptcha.com/terms">Terms of Service</a> apply.
+			</li>
+		</ul>
+
+	</div>
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
