@@ -2,18 +2,18 @@ import * as functions from "firebase-functions";
 // import { response } from "firebase-functions/node_modules/@types/express";
 import * as hcaptcha from "hcaptcha";
 
-const secret: string = 'env.string';
+const secret:string = functions.config().hcaptcha.key;
 
 export const helloWorld = functions.https.onRequest(async (request, response) => {
     let formBody: formBody = request.body
     try {
 
-        let result: VerifyResponse = await hcaptcha.verify(secret, formBody["h-captcha-response"],)
+        let result: VerifyResponse = await hcaptcha.verify(secret, formBody.hcaptchaResponse)
         functions.logger.info(result);
         if (result.success) {
-            //send email
+            //send email to the magic of internet 
             functions.logger.info("Verification Success")
-            response.send({ msg: 'Success' })
+            response.sendStatus(200)
         }
         else {
             throw new Error('Verification Failed')
@@ -28,6 +28,5 @@ export const helloWorld = functions.https.onRequest(async (request, response) =>
 interface formBody {
     name: string;
     email: string;
-    "g-recaptcha-response": string;
-    "h-captcha-response": string
+    hcaptchaResponse: string
 }

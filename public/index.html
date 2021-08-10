@@ -7,9 +7,26 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<script src="https://hcaptcha.com/1/api.js" async defer></script>
 	<script type="text/javascript">
-		function onSubmit(token) {
-		  document.forms['myform'].submit();
-		}
+			function onSubmit(token) {
+				// console.log(token)
+				const contactForm = document.querySelector('#myform')
+
+				const params = {
+					name: contactForm.elements.name.value,
+					email: contactForm.elements.email.value,
+					message: contactForm.elements.message.value,
+					hcaptchaResponse: token
+				};
+				const options = {
+					method: 'POST',
+					body: JSON.stringify(params),
+					'contentType':'application/x-www-form-urlencoded'
+				};
+				fetch('http://localhost:5001/deep-hollow-solutions/us-central1/helloWorld', options)
+					.then(response => console.log(response))
+					.catch(err=>console.log(err))
+			}
+	
 	  </script>
 </head>
 
@@ -78,7 +95,7 @@
 			<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
 				orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 	
-			<form method="post" id="myform" action="http://localhost:5001/deep-hollow-solutions/us-central1/helloWorld">
+			<form id="myform">
 				<div class=" row">
 					<div class="col-6 col-12-mobilep">
 						<input type="text" name="name" value="email@email.com" placeholder="Name" />
