@@ -4,8 +4,10 @@ import * as hcaptcha from "hcaptcha";
 
 const secret:string = functions.config().hcaptcha.key;
 
-export const helloWorld = functions.https.onRequest(async (request, response) => {
+export const sendEmail = functions.https.onRequest(async (request, response) => {
+    console.log(secret)
     let formBody: formBody = request.body
+    console.log(typeof(formBody))
     try {
 
         let result: VerifyResponse = await hcaptcha.verify(secret, formBody.hcaptchaResponse)
