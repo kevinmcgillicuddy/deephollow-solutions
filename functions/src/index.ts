@@ -2,8 +2,9 @@ import * as functions from "firebase-functions";
 import * as hcaptcha from "hcaptcha";
 import * as cors from 'cors';
 const corsHandler = cors({ 
-    methods: 'POST',
-    origin: ['https://deep-hollow-solutions.web.app/','http://127.0.0.1:5500/'],
+    methods: ['POST','OPTIONS'] ,
+    origin: 'https://deep-hollow-solutions.web.app/',
+    
 });
 
 const secret:string = functions.config().hcaptcha.key;
