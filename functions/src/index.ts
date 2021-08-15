@@ -3,8 +3,7 @@ import * as hcaptcha from "hcaptcha";
 import * as cors from 'cors';
 const corsHandler = cors({ 
     methods: ['POST','OPTIONS'] ,
-    origin: 'https://deep-hollow-solutions.web.app/',
-    
+    origin: 'https://deep-hollow-solutions.web.app',
 });
 
 const secret:string = functions.config().hcaptcha.key;
