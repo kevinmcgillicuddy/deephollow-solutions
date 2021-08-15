@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
 	<title>Deep Hollow IT Solutions</title>
 	<meta charset="utf-8" />
@@ -7,27 +8,27 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<script src="https://hcaptcha.com/1/api.js" async defer></script>
 	<script type="text/javascript">
-			function onSubmit(token) {
-				// console.log(token)
-				const contactForm = document.querySelector('#myform')
+		function onSubmit(token) {
+			const contactForm = document.querySelector('#myform')
 
-				const params = {
-					name: contactForm.elements.name.value,
-					email: contactForm.elements.email.value,
-					message: contactForm.elements.message.value,
-					hcaptchaResponse: token
-				};
-				const options = {
-					method: 'POST',
-					body: JSON.stringify(params),
-					'contentType':'application/x-www-form-urlencoded'
-				};
-				fetch('https://us-central1-deep-hollow-solutions.cloudfunctions.net/sendEmail', options)
-					.then(response => console.log(response))
-					.catch(err=>console.log(err))
-			}
-	
-	  </script>
+			const params = {
+				name: contactForm.elements.name.value,
+				email: contactForm.elements.email.value,
+				message: contactForm.elements.message.value,
+				hcaptchaResponse: token
+			};
+			const options = {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify(params),
+			};
+			console.log(options)
+			fetch('https://us-central1-deep-hollow-solutions.cloudfunctions.net/sendEmaill', options)
+				.then(response => contactForm.reset())
+				.catch(err => console.log(err))
+		}
+
+	</script>
 </head>
 
 <body class="is-preload">
@@ -87,14 +88,14 @@
 	<!-- Footer -->
 	<div id="footer">
 		<div class="container medium">
-	
+
 			<header class="major last">
 				<h2>Questions or comments?</h2>
 			</header>
-	
+
 			<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
 				orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
-	
+
 			<form id="myform">
 				<div class=" row">
 					<div class="col-6 col-12-mobilep">
@@ -120,20 +121,20 @@
 			</form>
 
 
-		<ul class="icons">
-			<li><a href="#" class="icon brands fa-instagram"><span class="label">Github</span></a></li>
-			<li><a href="#" class="icon regular fa-envelope"><span class="label">Email</span></a></li>
-		</ul>
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon regular fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
 
-		<ul class="copyright">
-			<li>All rights reserved.</li>
-			<li>This site is protected by hCaptcha and its
-				<a href="https://hcaptcha.com/privacy">Privacy Policy</a> and
-				<a href="https://hcaptcha.com/terms">Terms of Service</a> apply.
-			</li>
-		</ul>
+			<ul class="copyright">
+				<li>All rights reserved.</li>
+				<li>This site is protected by hCaptcha and its
+					<a href="https://hcaptcha.com/privacy">Privacy Policy</a> and
+					<a href="https://hcaptcha.com/terms">Terms of Service</a> apply.
+				</li>
+			</ul>
 
-	</div>
+		</div>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
