@@ -1,6 +1,8 @@
 import * as functions from "firebase-functions";
 import * as hcaptcha from "hcaptcha";
 import * as cors from 'cors';
+import * as admin from 'firebase-admin'
+
 const corsHandler = cors({ 
     methods: ['POST','OPTIONS'] ,
     origin: 'https://deep-hollow-solutions.web.app/',
@@ -15,7 +17,7 @@ export const sendEmail = functions.https.onRequest(async (request, response) => 
             let result: VerifyResponse = await hcaptcha.verify(secret, formBody.hcaptchaResponse)
             functions.logger.info(result);
             if (result.success) {
-                //send email to the magic of internet 
+                admin.firestore().collection('contacts').doc().set({email:formBody.email, name: formBody.name})
                 functions.logger.info("Verification Success")
                 response.sendStatus(200)
             }
@@ -28,6 +30,10 @@ export const sendEmail = functions.https.onRequest(async (request, response) => 
             functions.logger.error(err)
             response.sendStatus(200)
         }
+
+
+
+
     });
 });
 
