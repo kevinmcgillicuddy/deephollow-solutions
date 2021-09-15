@@ -4,8 +4,7 @@ import * as cors from 'cors';
 import * as admin from 'firebase-admin'
 
 const corsHandler = cors({ 
-    methods: ['POST','OPTIONS'] ,
-    origin: 'https://deephollowsolutions.com',
+    methods: ['POST','OPTIONS'] 
 });
 
 const secret:string = functions.config().hcaptcha.key;
