@@ -5,13 +5,14 @@ import * as admin from 'firebase-admin'
 
 const corsHandler = cors({ 
     methods: ['POST','OPTIONS'],
-    origin:'https://deephollowsolutions.com/'
+    origin:'https://deephollowsolutions.com'
 });
 
 const secret:string = functions.config().hcaptcha.key;
 
 export const sendEmail = functions.https.onRequest(async (request, response) => {
     corsHandler(request, response, async () => {
+        admin.initializeApp() 
         let formBody: formBody = request.body
         try {
             let result: VerifyResponse = await hcaptcha.verify(secret, formBody.hcaptchaResponse)
