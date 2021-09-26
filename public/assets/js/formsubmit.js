@@ -12,7 +12,7 @@ function onSubmit(token) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
     };
-    fetch('https://accounts.google.com/ServiceLogin?service=ah&passive=true&continue=https://uc.appengine.google.com/_ah/conflogin%3Fcontinue%3Dhttps://us-central1-deep-hollow-solutions.cloudfunctions.net/sendEmaill/', options)
+    fetch('https://us-central1-deep-hollow-solutions.cloudfunctions.net/sendEmaill/', options)
         .then(response => contactForm.reset())
         .catch(err => console.log(err))
 }
