@@ -3,15 +3,15 @@ import * as hcaptcha from "hcaptcha";
 import * as cors from 'cors';
 import * as admin from 'firebase-admin'
 
-const corsHandler = cors({ 
-    methods: ['POST','OPTIONS'],
-    origin:true
-});
+// const corsHandler = cors({ 
+//     methods: ['POST','OPTIONS'],
+//     origin:true
+// });
 
 const secret:string = functions.config().hcaptcha.key;
 
 export const sendEmail = functions.https.onRequest(async (request, response) => {
-    corsHandler(request, response, async () => {
+
         let formBody: formBody = request.body
         try {
             let result: VerifyResponse = await hcaptcha.verify(secret, formBody.hcaptchaResponse)
@@ -34,7 +34,7 @@ export const sendEmail = functions.https.onRequest(async (request, response) => 
 
 
 
-    });
+
 });
 
 interface formBody {
